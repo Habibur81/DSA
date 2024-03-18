@@ -24,7 +24,10 @@ void PrimeNum(int n){
 }
 
 int main(){
-    int n = 28;
+    int n;
+    cout<<"Enter a Number of check Prime of nun prime: ";
+    cin>>n;
+
     PrimeNum(n);
 
     return 0;
