@@ -1,0 +1,15 @@
+1. As the name suggests, C++ preprocessors are tools 
+that transform (preprocess) our program before it is compiled.
+
+Preprocessors use preprocessor directives in order to control the 
+code transformation. For example, #include <iostream>
+
+Preprocessor Directives
+In C++, all preprocessor directives begin with the # symbol. 
+For example, #include, #define, #if, and so on.
+
+Macros in C++
+Macros are essentially text substitution mechanisms 
+handled by the preprocessor before compilation. 
+They offer a way to define constant values and 
+code snippets that can be reused throughout your program.

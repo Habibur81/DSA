@@ -1,7 +1,3 @@
-while(st < end){
-    //     char tem = name[st];
-    //     name[st] = name[end];
-        
-    //     st++;
-    //     len--;
+for(int i = 0; i < sizeof(arr); i++){
+    //     cout << arr[i] << endl;
     // }
