@@ -32,10 +32,6 @@ class person{
         return age;
     }
 
-    // int setFunc(){
-    //     retu
-    // }
-
 
 
 };

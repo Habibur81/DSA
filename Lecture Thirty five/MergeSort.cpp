@@ -46,7 +46,7 @@ void merge(int arr[], int fidx, int lidx){
         k++;
     }
 
-    while (i < len1)
+    while (j < len1)
     {
         arr[k] = rarr[j];
         j++;
