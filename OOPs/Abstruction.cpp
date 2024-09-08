@@ -4,11 +4,13 @@ using namespace std;
 class Shape{
     protected:
         float num1;
-    public:
-        void dimansion(){
+    public: 
+        float inputNum(){
             cin >> num1;
         }
+
         virtual float calculation() = 0;
+
 };
 
 class Square : public Shape{
@@ -18,12 +20,8 @@ class Square : public Shape{
         }
 };
 
-
 int main(){
-    Square sqr;
-    sqr.dimansion();
 
-    cout << "Square = " << sqr.calculation() << endl;
 
     return 0;
 }
