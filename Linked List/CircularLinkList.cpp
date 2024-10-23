@@ -6,10 +6,12 @@ class Node{
     public:
         int data;
         Node* next;
+        
         Node(int d){
             this -> data = d;
             this -> next = NULL;
         }
+
         ~Node(){
             int value = this -> data;
             while(this -> next != NULL){

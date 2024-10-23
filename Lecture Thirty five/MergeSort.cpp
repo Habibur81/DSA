@@ -29,6 +29,7 @@ void merge(int* arr, int fidx, int m, int lidx){
     int k = fidx;
 
     while (i < len1 && j < len2){
+
         if(larr[i] <= rarr[j]){
             arr[k] = larr[i];
             i++;
@@ -36,7 +37,7 @@ void merge(int* arr, int fidx, int m, int lidx){
             arr[k] = rarr[j];
             j++;
         }
-        cout << k << " ";
+        cout << "while i+j=" << k << " find=" << fidx << endl;
         k++;
     }
 
@@ -44,7 +45,7 @@ void merge(int* arr, int fidx, int m, int lidx){
     {
         arr[k] = larr[i];
         i++;
-        cout << k << " ";
+        cout << "while i=" << k << " find=" << fidx << endl;
         k++;
     }
 
@@ -52,9 +53,11 @@ void merge(int* arr, int fidx, int m, int lidx){
     {
         arr[k] = rarr[j];
         j++;
-        cout << k << " ";
+        cout << "while j=" << k << " find=" << fidx << endl;
         k++;
     } 
+
+    cout << endl << endl;
 }
 
 void MSort(int* arr, int fidx, int lidx){
@@ -78,8 +81,8 @@ int main(){
 
     MSort(arr, fidx, lidx);
 
-    // for(int i = 0; i <= lidx; i++){
-    //     cout << arr[i] << " ";
-    // }cout << endl;
+    for(int i = 0; i <= lidx; i++){
+        cout << arr[i] << " ";
+    }cout << endl;
 
 }

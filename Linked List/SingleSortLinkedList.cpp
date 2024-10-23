@@ -11,17 +11,17 @@ class Node{
             this->val = Val;
             this->next = NULL;
         }
-    };
+};
 
 
-    void printList(Node *head){
-        while (head != NULL){
-            cout << head->val << " ";
-            head = head->next;
-        }
-
-        cout << endl;
+void printList(Node *head){
+    while (head != NULL){
+        cout << head->val << " ";
+        head = head->next;
     }
+
+    cout << endl;
+}
 
 
 Node *findMiddle(Node *head){
@@ -84,6 +84,19 @@ Node *mergeSort(Node *head){
    return res;
 }
 
+Node* InsertAttail(Node* &head, Node* &tail, int d){
+    Node* newNode = new Node(d);
+    Node* temp = newNode;
+
+    if(head == NULL){
+        head = temp;
+        tail = temp;
+    }else{
+        tail->next = temp;
+        tail = temp;
+    }
+}
+
 
 
 int main(){
@@ -101,9 +114,19 @@ int main(){
 
     head = mergeSort(head);
 
-    cout << head->next->next->val << endl;
+    Node* Clonehead = NULL;
+    Node* Clonetail = NULL;
+
+    while(head != NULL){
+        InsertAttail(Clonehead, Clonetail, head->val);
+        head = head->next;
+    }
+
+    cout << Clonehead->val << endl;
+
+
  
-    
+
 
     return 0;
 }
