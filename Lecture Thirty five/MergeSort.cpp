@@ -1,28 +1,28 @@
 #include <iostream>
 using namespace std;
 
-void merge(int arr[], int fidx, int lidx){
-
-    int m = fidx + (lidx - fidx)/2;
+void merge(int* arr, int fidx, int m, int lidx){
+    //cout << "mid "<<m<<endl;
     int len1 = m - fidx + 1;
     int len2 = lidx - m;
+    //cout << "fidx=" << fidx << " lidx=" << lidx << endl;
+    //cout << "len1=" << len1 <<" len2="<<len2<<endl;
 
     int larr[len1];
     int rarr[len2];
-
-    //int* larr = new int[len1]; // dynamic memory allocation heap memory
-    //int* rarr = new int[len2]; // dynamic memory allocation heap memory
     
-    int aidx = fidx; //left side array
     for(int i = 0; i < len1; i++){
-        larr[i] = arr[aidx];
-        aidx++;
+        larr[i] = arr[fidx+i];
+        //cout <<"larr=" << i <<endl;
+        //cout << arr[fidx+i] << endl;
     }
-    int maidx = m + 1; //right side array
-    for(int i = 0; i < len2; i++){
-        rarr[i] = arr[maidx];
-        maidx++;
+   //cout << endl;
+    for(int j = 0; j < len2; j++){
+        rarr[j] = arr[m+j+1];
+        //cout <<"rarr=" << j <<endl;
+        //cout << arr[m+j+1] << endl;
     }
+   //cout << endl;
 
     int i = 0;
     int j = 0;
@@ -36,6 +36,7 @@ void merge(int arr[], int fidx, int lidx){
             arr[k] = rarr[j];
             j++;
         }
+        cout << k << " ";
         k++;
     }
 
@@ -43,27 +44,30 @@ void merge(int arr[], int fidx, int lidx){
     {
         arr[k] = larr[i];
         i++;
+        cout << k << " ";
         k++;
     }
 
-    while (j < len1)
+    while (j < len2)
     {
         arr[k] = rarr[j];
         j++;
+        cout << k << " ";
         k++;
     } 
 }
 
-void MSort(int arr[], int fidx, int lidx){
-    if(fidx >= lidx)
+void MSort(int* arr, int fidx, int lidx){
+    if(fidx >= lidx){
         return;
+    }
+        
     
     int mid = fidx + (lidx - fidx)/2;
-   // cout << "Mid value = " << mid << endl;
 
     MSort(arr, fidx, mid);
     MSort(arr, mid+1, lidx);
-    merge(arr, fidx, lidx);
+    merge(arr, fidx, mid, lidx);
 }
 
 int main(){
@@ -74,8 +78,8 @@ int main(){
 
     MSort(arr, fidx, lidx);
 
-    for(int i = 0; i <= lidx; i++){
-        cout << arr[i] << " ";
-    }cout << endl;
+    // for(int i = 0; i <= lidx; i++){
+    //     cout << arr[i] << " ";
+    // }cout << endl;
 
 }
