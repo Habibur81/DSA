@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-// this process is called rum time polymorphism.
+// this process is called run time polymorphism.
 class Human{
     public:
         void IM(){

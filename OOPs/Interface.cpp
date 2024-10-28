@@ -1,52 +1,32 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-class Shape{
 
-        protected:
-            int width;
-            int height;
-        public:
-        void setWidth(int w){
-            width = w;
-        }
-
-        void setHeight(int h){
-            height = h;
-        }
-
-        virtual int getArea() = 0;
-
+class Name{
+    public:    
+        virtual string getName() = 0;
 };
 
-class Rectangle : public Shape{
+class company : public Name{
     public:
-        int getArea(){
-            return (width * height);
+        string getName(){
+            return "DBI Research Private Limited";
         }
 };
 
-class Triangle : public Shape{
+class post : public Name{
     public:
-        int getArea(){
-            return (width * height) / 2;
+        string getName(){
+            return "Data Analysis & Automation";
         }
+
 };
 
 int main(){
+    company com;
+    post p;
 
-    Rectangle rec;
-    Triangle tri;
-
-    rec.setWidth(10);
-    rec.setHeight(20);
-
-    cout << "Recangle area = " << rec.getArea() << endl;
-
-    tri.setWidth(10);
-    tri.setHeight(20);
-
-    cout << "Triangle area = " << tri.getArea() << endl;
-
+    cout << com.getName() << endl;
+    cout << p.getName() << endl;
 
     return 0;
 }

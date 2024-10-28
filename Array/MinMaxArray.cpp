@@ -16,14 +16,15 @@ int getMax(vector<int> arr){
     return ArrMax;
 }
 int getMin(vector<int> arr){
-            int ArrMin = INT_MAX;
-            for(int i=0; i < arr.size(); i++){
-                if(arr[i] < ArrMin){
-                    ArrMin =  arr[i];   
-                }
-            }
-            
-            return ArrMin;
+    int ArrMin = INT_MAX;
+    
+    for(int i=0; i < arr.size(); i++){
+        if(arr[i] < ArrMin){
+            ArrMin =  arr[i];   
+        }
+    }
+    
+    return ArrMin;
 }
 
 int main(){

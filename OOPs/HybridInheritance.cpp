@@ -8,7 +8,7 @@ class A{
         }
 };
 
-class B: public A{
+class B : public A{
     public:
         void showB(){
             cout << "I am Class B" << endl;
@@ -16,14 +16,14 @@ class B: public A{
 
 };
 
-class C: public A{
+class C : public A{
     public:
         void showC(){
             cout << "I am Class C" << endl;
         }    
 };
 
-class D: public B, public C{
+class D : public B, public C{
     public:
         void showD(){
             cout << "I am Class D" << endl;
@@ -36,7 +36,7 @@ class D: public B, public C{
 int main(){
     D obj;
     
-    //obj.showA(); Ambiguity problem
+    //obj.showA(); //Ambiguity problem
     obj.showB();
     obj.showC();
     obj.showD();
