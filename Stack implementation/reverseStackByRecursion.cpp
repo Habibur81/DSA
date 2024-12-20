@@ -2,7 +2,7 @@
 using namespace std;
 void insertAtBottom( stack<int>& nums, int num){
 
-    if(nums.empty()){
+    if(nums.empty() || ((num > nums.top()))){
         nums.push(num);
         return;
     }
@@ -33,12 +33,28 @@ void reverse( stack<int>& nums){
 int main(){
     stack<int>nums;
     nums.push(10);
-    nums.push(20);
+    nums.push(-2);
     nums.push(30);
-    nums.push(40);
+    nums.push(-4);
     nums.push(50);
 
     reverse(nums);
+
+   cout << nums.top() << endl;
+   nums.pop();
+
+   cout << nums.top() << endl;
+   nums.pop();
+
+   cout << nums.top() << endl;
+   nums.pop();
+
+   cout << nums.top() << endl;
+   nums.pop();
+
+   cout << nums.top() << endl;
+   nums.pop();
+
 
     return 0;
 }

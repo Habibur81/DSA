@@ -97,33 +97,54 @@ Node* InsertAttail(Node* &head, Node* &tail, int d){
     }
 }
 
+Node* removeElements(Node* head, int val){
+
+    if(head == NULL){
+        return NULL;
+    }
+
+    head->next = removeElements(head->next, val);
+
+    if(head->val == val){
+        head = head->next;
+    }
+
+    return head;
+}
+
 
 
 int main(){
 
-    // 4 --> 3 --> 2 --> 5 --> 1 --> NULL
+    // 4 --> 3 --> 2 --> 3 --> 1 --> NULL
     Node *head = new Node(4);
     head->next = new Node(3);
     head->next->next = new Node(2);
-    head->next->next->next = new Node(5);
+    head->next->next->next = new Node(3);
     head->next->next->next->next = new Node(1);
 
     
    // cout << "List before sorting - " << endl;
     //printList(head);
 
-    head = mergeSort(head);
+    // head = mergeSort(head);
 
-    Node* Clonehead = NULL;
-    Node* Clonetail = NULL;
+    // Node* Clonehead = NULL;
+    // Node* Clonetail = NULL;
 
-    while(head != NULL){
-        InsertAttail(Clonehead, Clonetail, head->val);
-        head = head->next;
+    // while(head != NULL){
+    //     InsertAttail(Clonehead, Clonetail, head->val);
+    //     head = head->next;
+    // }
+
+    // cout << Clonehead->val << endl;
+
+    Node* temp = removeElements(head, 3);
+
+    while(temp != NULL){
+        cout << temp -> val << " ";
+        temp = temp -> next;
     }
-
-    cout << Clonehead->val << endl;
-
 
  
 
