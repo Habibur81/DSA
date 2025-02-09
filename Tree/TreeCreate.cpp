@@ -32,6 +32,41 @@ TreeNode* CreateTree(TreeNode* root){
 
 }
 
+
+void buildFromLevelOrder(TreeNode* &root){
+    queue<TreeNode*> q;
+    cout << "Enter the data for root: ";
+    int data;
+    cin >> data;
+    root = new TreeNode(data);
+    q.push(root);
+
+    while (!q.empty())
+    {
+        TreeNode* temp = q.front();
+        q.pop();
+
+        cout << "Enter the left side " << temp -> data << " data  " << endl;
+        int leftData;
+        cin >> leftData;
+        if(leftData != -1){
+            temp -> left = new TreeNode(leftData);
+            q.push(temp -> left);
+        }
+
+        cout << "Enter the right side " << temp -> data << " data  " << endl;
+        int rightData;
+        cin >> rightData;
+        if(rightData != -1){
+            temp -> right = new TreeNode(rightData);
+            q.push(temp -> right);
+        }
+    }
+    
+
+
+}
+
 //BFS
 void levelOrderSearch(TreeNode* root){
     queue<TreeNode*>bfs_q;
@@ -126,12 +161,16 @@ void levelSearch(TreeNode* root){
 
 int main(){
     TreeNode* root = NULL;
-    root = CreateTree(root);
-    //1 2 -1 -1 3 -1 -1
-   // levelOrderSearch(root);
-  // PostOrder(root);
+    buildFromLevelOrder(root);
 
-  levelSearch(root);
+
+
+    //root = CreateTree(root);
+    //1 2 -1 -1 3 -1 -1
+    // levelOrderSearch(root);
+    // PostOrder(root);
+
+    //levelSearch(root);
 
     return 0;
 }
