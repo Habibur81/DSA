@@ -65,6 +65,9 @@ void inorder(node* root){
 // }
 
 void bfs(node* root){
+
+    if(root == nullptr) return;
+    
     queue<node*> q;
     q.push(root);
 
