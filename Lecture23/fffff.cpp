@@ -45,7 +45,7 @@ void ColBySum(int arr[][3], int n, int m){
 
 int largestRowSum(int arr[][3], int n, int m){
 
-    int maxSum = INT8_MIN;
+    int maxSum = INT_MIN;
     int rowIndex = -1;
     cout << "Row Largest Sum -> ";
 

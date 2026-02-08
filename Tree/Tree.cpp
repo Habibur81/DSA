@@ -102,6 +102,8 @@ void inorderst(CNode* root){
 }
 
 void preorderst(CNode* root){
+    if(root == nullptr) return;
+    
     stack<CNode*> st;
     st.push(root);
 
@@ -109,8 +111,11 @@ void preorderst(CNode* root){
         CNode* curr = st.top();
         st.pop();
         cout << curr->data << " ";
-        st.push(curr->right);
-        st.push(curr->left);
+
+        if(curr->right != nullptr)
+            st.push(curr->right);
+        if(curr->left != nullptr)
+            st.push(curr->left);
     }   
 }
 
@@ -131,8 +136,10 @@ int main(){
     // cout << endl;
     // bfs(root);
 
-    inorderst(root);
+   // inorderst(root);
 
-   // preorderst(root);
+   preorderst(root);
+
+   return 0;
 
 }
