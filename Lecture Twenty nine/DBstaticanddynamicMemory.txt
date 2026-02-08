@@ -1,0 +1,14 @@
+Static Memory Allocation
+1. Allocation time - Compile time.
+2. Location - Static Memory
+3. Lifetime - Entire programm execution or function scope
+4. Flexibility - Limited, size fixed at compile time
+5. Efficiency - Faster access compare to dynamic Allocation
+    int x = 10 // Static Memory Allocation // Static integer variable.
+
+Dynamic Memory Allocation
+1. Allocation time - Run time
+2. Location - Heap Memory
+3. Lifetime - Controlled by programmer using new and delete
+4. Flexibility - High, size can be determined at runtime
+5. Efficiency - Slower access compared to Static allocation

@@ -1,0 +1,153 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Node{
+    public:
+        int val;
+        Node *next;
+        
+        Node(int Val){
+            this->val = Val;
+            this->next = NULL;
+        }
+};
+
+
+void printList(Node *head){
+    while (head != NULL){
+        cout << head->val << " ";
+        head = head->next;
+    }
+
+    cout << endl;
+}
+
+
+Node *findMiddle(Node *head){
+    if (head == NULL)
+        return head;
+    
+    Node *slow = head, *fast = head;
+    
+    while (fast->next != NULL && fast->next->next != NULL){
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    //cout << slow -> val << endl;
+    return slow;
+}
+
+
+Node *mergeSorted(Node *left, Node *right){
+
+    if (left == NULL)
+        return right;
+    if (right == NULL)
+        return left;
+
+    Node *res = NULL;
+
+    if (left->val <= right->val){
+        res = left;
+        res->next = mergeSorted(left->next, right);
+        
+    }else {
+        // Assigning right to res->
+        res = right;
+        res->next = mergeSorted(left, right->next);
+        
+    }
+
+    return res;
+}
+
+
+
+Node *mergeSort(Node *head){
+
+    if (head == NULL || head->next == NULL){
+        return head;
+    }
+
+    Node *mid = findMiddle(head);
+
+    Node *nextToMid = mid->next;
+
+    mid->next = NULL;
+
+    Node *left = mergeSort(head);
+    Node *right = mergeSort(nextToMid);
+
+   Node *res = mergeSorted(left, right);
+
+   return res;
+}
+
+Node* InsertAttail(Node* &head, Node* &tail, int d){
+    Node* newNode = new Node(d);
+    Node* temp = newNode;
+
+    if(head == NULL){
+        head = temp;
+        tail = temp;
+    }else{
+        tail->next = temp;
+        tail = temp;
+    }
+}
+
+Node* removeElements(Node* head, int val){
+
+    if(head == NULL){
+        return NULL;
+    }
+
+    head->next = removeElements(head->next, val);
+
+    if(head->val == val){
+        head = head->next;
+    }
+
+    return head;
+}
+
+
+
+int main(){
+
+    // 4 --> 3 --> 2 --> 3 --> 1 --> NULL
+    Node *head = new Node(4);
+    head->next = new Node(3);
+    head->next->next = new Node(2);
+    head->next->next->next = new Node(3);
+    head->next->next->next->next = new Node(1);
+
+    
+   // cout << "List before sorting - " << endl;
+    //printList(head);
+
+    // head = mergeSort(head);
+
+    // Node* Clonehead = NULL;
+    // Node* Clonetail = NULL;
+
+    // while(head != NULL){
+    //     InsertAttail(Clonehead, Clonetail, head->val);
+    //     head = head->next;
+    // }
+
+    // cout << Clonehead->val << endl;
+
+    Node* temp = removeElements(head, 3);
+
+    while(temp != NULL){
+        cout << temp -> val << " ";
+        temp = temp -> next;
+    }
+
+ 
+
+
+    return 0;
+}
